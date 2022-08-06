@@ -7,8 +7,7 @@ pipeline {
         {
             steps 
             {
-                //echo 'Building Calculator'
-                'docker build -t calculator .'
+                sh 'docker build -t calculator .'
             }
         }
         stage('Test') 
