@@ -8,7 +8,7 @@ pipeline {
             steps 
             {
                 echo 'Building Calculator'
-                --docker build -t calculator . 
+                
                 build 'calculator-pipeline'
             }
         }
