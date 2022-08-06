@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+
+    stages 
+    {
+        stage('Build') 
+        {
+            steps 
+            {
+                echo 'Building Calculator'
+                docker build -t calculator . 
+            }
+        }
+        stage('Test') 
+        {
+            steps {
+                echo 'Testing Calculator'
+            }
+        }
+        stage('Deploy') 
+        {
+            steps {
+                echo 'Deploying Calculator'
+            }
+        }
+    }
+}
