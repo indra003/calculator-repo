@@ -7,19 +7,21 @@ pipeline {
         {
             steps 
             {
-                echo 'Building Calculator'
+                //echo 'Building Calculator'
                 'docker build -t calculator .'
             }
         }
         stage('Test') 
         {
-            steps {
+            steps 
+            {
                 echo 'Testing Calculator'
             }
         }
         stage('Deploy') 
         {
-            steps {
+            steps
+            {
                 echo 'Deploying Calculator'
             }
         }
