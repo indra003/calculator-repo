@@ -1,11 +1,26 @@
 pipeline 
 {
-    agent any
+    agent none
 
     stages 
     {
+    stage('Maven Install') 
+    {
+      agent 
+      {
+        docker
+        {
+          image 'maven:3.5.0'
+        }
+      }
+      steps 
+      {
+        sh 'mvn clean install'
+      }
+    }
         stage('Build') 
         {
+        agent any
             steps 
             {
                 sh 'docker build -t calculator .'
@@ -13,6 +28,7 @@ pipeline
         }
         stage('Test') 
         {
+        agent any
             steps 
             {
                 echo 'Testing Calculator'
@@ -20,6 +36,7 @@ pipeline
         }
         stage('Deploy') 
         {
+        agent any
             steps
             {
                 echo 'Deploying Calculator'
